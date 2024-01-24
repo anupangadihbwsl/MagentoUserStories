@@ -104,5 +104,5 @@ atlassian*
 !var/migration/
 !var/migration/migration-queries/*
 
-/code/Anup/US1/*
+
 /code/Anup/US2/*
