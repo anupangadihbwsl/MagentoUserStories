@@ -1,24 +1,27 @@
-<?php 
-
-declare(strict_types=1);
+<?php
 
 namespace Anup\US1;
 
-use \Magento\Catalog\Api\Data\CategoryInterface;
+use Magento\Catalog\Api\Data\CategoryInterface;
 
-class Test{
-    protected array $arrayParam;
-    protected string $stringParam;
-    protected CategoryInterface $categoryInterface;
-
-    public function __construct(CategoryInterface $categoryInterface, array $arrayParam=[1,2,3], string $stringParam="Anup") {
-        $this->categoryInterface = $categoryInterface;
-        $this->arrayParam = $arrayParam;
-        $this->stringParam = $stringParam;
+class Test
+{
+    protected $category;
+    protected $string;
+    protected $array;
+    public function __construct(CategoryInterface $category, $string='Anup', $array=[1,2,3])
+    {
+        $this->category = $category;
+        $this->string = $string;
+        $this->array = $array;
     }
 
-    public function displayParams(){
-        echo "<pre>".print_r($this->arrayParam, true)."</pre>";
-        echo "String params: ".print_r($this->stringParam, true);
+    public function displayParams()
+    {
+        echo "<p>";
+        print_r($this->array);
+        echo "</p>";
+        echo "String: ".$this->string;
+        return [$this->array, $this->string];
     }
 }
