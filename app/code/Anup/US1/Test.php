@@ -6,9 +6,17 @@ use Magento\Catalog\Api\Data\CategoryInterface;
 
 class Test
 {
-    protected $category;
-    protected $string;
-    protected $array;
+    protected CategoryInterface $category;
+    protected string $string;
+    protected array $array;
+
+    /**
+     *
+     *
+     * @param CategoryInterface $category
+     * @param string $string
+     * @param array<int> $array
+     */
     public function __construct(CategoryInterface $category, $string='Anup', $array=[1,2,3])
     {
         $this->category = $category;
@@ -18,10 +26,8 @@ class Test
 
     public function displayParams()
     {
-        echo "<p>";
+        print_r("Array: ");
         print_r($this->array);
-        echo "</p>";
-        echo "String: ".$this->string;
-        return [$this->array, $this->string];
+        print_r("String: " . $this->string);
     }
 }

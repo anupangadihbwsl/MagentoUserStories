@@ -4,17 +4,22 @@ declare(strict_types= 1);
 
 namespace Anup\US1\Controller\Index;
 
+use Anup\US1\Test;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory;
 
-use Anup\US1\Test;
-
 class Index extends Action
 {
-    private $test;
-    private $resultJsonFactory;
-    public function __construct(Context $context, Test $test, JsonFactory $resultJsonFactory)
+    private Test $test;
+    private JsonFactory $resultJsonFactory;
+    /**
+     *
+     * @param Context $context
+     * @param Test $test
+     * @param JsonFactory $resultJsonFactory
+     */
+    public function __construct($context, $test, $resultJsonFactory)
     {
         parent::__construct($context);
         $this->test = $test;
@@ -26,5 +31,4 @@ class Index extends Action
         $result = $this->resultJsonFactory->create();
         return $result->setData([$this->test->displayParams()]);
     }
-
 }
