@@ -1,21 +1,32 @@
 <?php
 
+declare(strict_types= 1);
+
 namespace Anup\US2\Plugin;
 
 class ProductPlugin
 {
-    /**
-     * Append 'On Sale!' to product name if price is less than $60
-     *
-     * @param \Magento\Catalog\Model\Product $subject
-     * @param string $result
-     * @return string
-     */
     public function afterGetName(\Magento\Catalog\Model\Product $subject, $result)
     {
-        if ($subject->getPrice() < 60) {
-            $result .= ' On Sale!';
+        $result .= ' On Sale!';
+        if ($subject->getFinalPrice() < 60) {
+            if($subject->getFinalPrice() < 20) {
+                $result .= 'WholeSale !! <strong>Discount %15</strong>';
+            }else if($subject->getFinalPrice() > 20 && $subject->getFinalPrice() < 50) {
+                $result .= 'Super Sale!!';
+            }
         }
+        return $result;
+    }
+
+    public function afterGetPrice(\Magento\Catalog\Model\Product $subject, $result)
+    {
+        // if($subject->getFinalPrice() < 50) {
+            // if($subject->getFinalPrice() > 20){
+                $result = $result*0.85;
+                $result = $result + 1.79;
+            // }
+        // }
         return $result;
     }
 }
