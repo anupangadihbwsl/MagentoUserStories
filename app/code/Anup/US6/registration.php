@@ -1,7 +1,4 @@
 <?php
+use Magento\Framework\Component\ComponentRegistrar;
 
-\Magento\Framework\Component\ComponentRegistrar::register(
-    \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Anup_US6',
-    __DIR__
-); 
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Anup_US6', __DIR__);
