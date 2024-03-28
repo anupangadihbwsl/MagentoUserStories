@@ -4,8 +4,8 @@ namespace Anup\US9\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
-use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action
 {

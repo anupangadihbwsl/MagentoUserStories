@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
    <menu>
        <add id="Anup_US9::first_level_demo"
-           title="USer Story 9"
+           title="User Story 9"
            module="Anup_US9"
            sortOrder="20"
            resource="Magento_Backend::content" />
